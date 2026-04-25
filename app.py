@@ -183,7 +183,7 @@ def cmd(m):
         threading.Thread(target=publicar, args=(tema,), daemon=True).start()   # ← CAMBIO 3
         bot.reply_to(m, "Publicado (en segundo plano).")
 
-    elif "socializar" in m.text:
+    elif m.text.startswith("/socializar"):
         threading.Thread(target=socializar, daemon=True).start()               # ← CAMBIO 3
         bot.reply_to(m, "Socializado (en segundo plano).")
 
@@ -208,12 +208,4 @@ def charla(m):
 # ---------------------------------------------------------
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
-
-
-
-
 
